@@ -1,0 +1,50 @@
+body{
+  background: #e6bbfc;
+}
+
+.jumbotron {
+    background: url(photo/1.jpg);
+    height: 300px;
+    margin-bottom: 0;
+}
+
+.footer{
+    background: #aaa;
+    height: auto;
+    font-size: 12px;
+}
+.carousel-inner img {
+     width: 100%;
+     height: 100%;
+ }
+
+ .card-body{
+   height: 350px;
+ }
+
+ .card-text{
+   text-align: justify;
+ }
+.album{
+  background-color: #e6bbfc;
+}
+.active {
+    font-size:16px;
+    word-spacing: 1px;
+}
+
+.table_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+
+}
+
+.table_form1 {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+}

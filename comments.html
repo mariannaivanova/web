@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Запись на тренировку </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="scripts/time.js"></script>
+  <script src="scripts/active_menu.js"></script>
+  <script src="scripts/table_filler.js"></script>
+  <link rel="stylesheet" href="ind.css">
+
+</head>
+
+<body>
+<div class="jumbotron" > </div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html"> Главная </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="abon.html"> Абонементы </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="raspisanie.html" > Расписание </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="table.html"> Запись на тренировку </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> Отзывы </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div>
+  <table id="comments" class="table table-hover table-bordered table-responsive-xl">
+
+  </table>
+  <script>
+    const request = fetch("https://jsonplaceholder.typicode.com/comments");
+    request
+            .then(response => response.json())
+            .then(data => {
+              const table = document.getElementById("comments");
+              for (let comment of data) {
+                const body = comment.body;
+                const email = comment.email;
+                const row = document.createElement("tr");
+                const email_field = document.createElement("td");
+                email_field.innerText = email;
+                const comment_field = document.createElement("td");
+                comment_field.innerText = body;
+                row.appendChild(email_field);
+                row.appendChild(comment_field);
+                table.appendChild(row);
+              }
+            })
+
+  </script>
+</div>
+
+<div class="footer  text-center" style="margin-bottom:0">
+  <div class="container" style="margin-top:30px; padding:10px">
+    <div class="row">
+      <div class="col-sm-6">
+        <p> <b> Связаться с нами: </b> <br>
+          +7 (812) 564-77-42 <br>
+          +7 (812) 564-77-45 <br>
+          prestigefitnes@mail.ru
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <p > <b> Услуги: </b> <br>
+          Тренажерный зал <br>
+          Групповые программы <br>
+          Фитнес бар <br>
+          Массаж <br>
+        </p>
+      </div>
+      <div class = "col-sm-12" > <span id="loadtime" ></span></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
